@@ -38,6 +38,7 @@ DFRobotDFPlayerMini myDFPlayer;
 
 // The sound Map defines, which soundmap should be used and which files are used in there
 int selectedFolder;
+boolean connectSuccess = true;
 
 void setup() {
   // open the serial port
@@ -46,12 +47,10 @@ void setup() {
 
   selectedFolder = 1;
 
+  setupLED();
   setupWifi();
   setupRotary();
-  setupLED();
   setupMP3();
-  
-  showColor(255,0,255);
 }
 
 void loop() {
