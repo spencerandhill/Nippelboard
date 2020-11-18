@@ -1,4 +1,4 @@
-#define MAX_SOUNDMAP 5
+#define MAX_SOUNDMAP 6
 #define NUM_LEDS 1
 
 #define ANALOG_PIN A0

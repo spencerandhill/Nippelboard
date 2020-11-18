@@ -2,11 +2,12 @@ boolean rotaryClockwiseArmed = false; // This is used to ensure, that only every
 boolean rotarycClockwiseArmed = false;// This is used to ensure, that only every second rotation is noticed
 
 RgbColor soundMapColors[MAX_SOUNDMAP] = {
-    RgbColor(0,255,0),
-    RgbColor(0,0,255),
-    RgbColor(255,165,0),
-    RgbColor(255,153,153),
-    RgbColor(255,255,255)
+    RgbColor(0,255,0), // Hellgrün
+    RgbColor(0,0,255), // Hellblau
+    RgbColor(255,200,0), // Orange / Gelb
+    RgbColor(255,0,255), // Pink
+    RgbColor(255,20,0), // Rot
+    RgbColor(255,255,255) // Weiß
   };
 
 void OnButtonClicked(void) {
