@@ -1,3 +1,5 @@
+boolean rotaryClockwiseArmed = false; // This is used to ensure, that only every second rotation is noticed
+boolean rotarycClockwiseArmed = false;// This is used to ensure, that only every second rotation is noticed
 
 RgbColor soundMapColors[MAX_SOUNDMAP] = {
     RgbColor(0,255,0),
@@ -12,17 +14,29 @@ void OnButtonClicked(void) {
   debugV("Button 1: clicked");
 }
 void onButtonClockwise(void) {
-  if(selectedFolder < MAX_SOUNDMAP) {
-    selectedFolder++;
-    debugV("Rotary clockwise");
+  if(rotaryClockwiseArmed) {
+    rotaryClockwiseArmed = false; // Reset, so that next rotation just the 2nd one is counted
+    if(selectedFolder < MAX_SOUNDMAP) {
+      selectedFolder++;
+      debugV("Rotary clockwise");
+    }
+  } else {
+    rotaryClockwiseArmed = true; // Arm Clockwise rotation
+    rotarycClockwiseArmed = false; // Disarm counter clockwise rotation
   }
 
   showSelectedMap();
 }
 void onButtonCounterClockwise(void) {
-  if(selectedFolder > 1) {
-    selectedFolder--;
-    debugV("Rotary counterclockwise");
+  if(rotarycClockwiseArmed) {
+    rotarycClockwiseArmed = false; // Reset, so that next rotation just the 2nd one is counted
+    if(selectedFolder > 1) {
+      selectedFolder--;
+      debugV("Rotary counterclockwise");
+    }
+  } else {
+    rotarycClockwiseArmed = true; // Arm counter Clockwise rotation
+    rotaryClockwiseArmed = false; // Disarm clockwise rotation
   }
 
   showSelectedMap();
